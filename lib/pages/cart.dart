@@ -34,6 +34,13 @@ class Cart extends StatelessWidget {
                   );
                 }
               )
+            ),
+            Divider(),
+            TextButton(
+              onPressed: () {
+                context.read<ShoppingCart>().removeAll();
+              }, 
+              child: const Text("Remove All"),
             )
           ],
         ),

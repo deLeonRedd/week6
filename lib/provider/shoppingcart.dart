@@ -15,4 +15,9 @@ class ShoppingCart extends ChangeNotifier{
     _products.add(item);
     notifyListeners();
   }
+
+  void removeAll() {
+    _products.clear();
+    notifyListeners();
+  }
 }
