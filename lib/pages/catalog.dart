@@ -37,7 +37,6 @@ class _CatalogState extends State<Catalog> {
                         context.read<ShoppingCart>().addItem(products[index]);
                       }, 
                       child: const Text("Add"),
-
                     ),
                   );
                 },

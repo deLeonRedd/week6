@@ -17,7 +17,9 @@ class Cart extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: ListView.builder(
+              child: products.isEmpty ? const Text("No Products Yet")
+              :
+              ListView.builder(
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   return ListTile(
