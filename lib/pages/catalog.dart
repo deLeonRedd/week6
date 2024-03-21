@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:week6/model/item.dart';
+import 'package:week6/provider/shoppingcart.dart';
 
 class Catalog extends StatefulWidget {
   const Catalog({super.key});
@@ -32,7 +34,7 @@ class _CatalogState extends State<Catalog> {
                     title: Text(products[index].name),
                     trailing: TextButton(
                       onPressed: () {
-                        print("TODO ADD PRODUCT TO CART");
+                        context.read<ShoppingCart>().addItem(products[index]);
                       }, 
                       child: const Text("Add"),
 
