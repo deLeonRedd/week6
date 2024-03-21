@@ -9,5 +9,8 @@ class ShoppingCart extends ChangeNotifier{
 
   List<Item> get cart => _products;
 
-
+  void removeItem(Item item){
+    _products.remove(item);
+    notifyListeners();
+  }
 }

@@ -8,7 +8,7 @@ class Cart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Item> products = context.read<ShoppingCart>().cart;
+    List<Item> products = context.watch<ShoppingCart>().cart;
     
     return Scaffold(
       appBar: AppBar(title: const Text('Cart')),
@@ -18,14 +18,14 @@ class Cart extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: 2, //TODO: Replace with actual counter
+                itemCount: products.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     leading: const Icon(Icons.star),
-                    title: Text("Test $index"),
+                    title: Text(products[index].name),
                     trailing: TextButton(
                       onPressed: () {
-                        print("TODO REMOVE ITEM");
+                        context.read<ShoppingCart>().removeItem(products[index]);
                       }, 
                       child: const Text("Remove")
                     ),
